@@ -5,6 +5,10 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'sans': ['montserrat'],
+      'serif': ['Roboto Slab']
+    },
     extend: {
       colors: {
         'darkpurple': '#14010c',
