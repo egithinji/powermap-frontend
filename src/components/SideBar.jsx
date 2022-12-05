@@ -10,7 +10,7 @@ function SideBar() {
         <div className="flex flex-col justify-start gap-4 min-h-full bg-black text-white">
             <div> 
                 <div className="text-3xl font-bold font-serif">
-                    Logo
+                    powermap
                 </div>
             </div>
             <Info />
