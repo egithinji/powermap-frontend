@@ -14,6 +14,9 @@ module.exports = {
         'darkpurple': '#14010c',
         'mypurple': '#1f0114',
         'white': '#ffffff'
+      },
+      fontSize: {
+        'xxs': '0',
       }
     },
   },

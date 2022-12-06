@@ -2,8 +2,8 @@
 
 function StatsTodayTotal() {
     return (
-        <div className="text-sm">
-            500 total complaints captured today
+        <div className="border-t border-white p-2">
+            <span className="font-bold">500</span> complaints captured today
         </div>
     )
 }

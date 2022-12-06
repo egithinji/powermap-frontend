@@ -2,8 +2,14 @@
 
 function StatsTrending() {
     return (
-        <div className="text-sm">
-            Ruaka (300), Kasarani (150), Umoja (50)
+        <div className="border-t border-white p-2">
+            Trending areas:
+            <ul>
+                <li>Ruaka (300)</li>
+                <li>Kasarani (150)</li>
+                <li>Umoja (50)</li>
+            </ul>
+            
         </div>
     )
 }

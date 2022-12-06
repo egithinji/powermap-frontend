@@ -2,10 +2,10 @@
 
 function Info() {
     return (
-        <div className="flex flex-col gap-4 text-sm">
+        <div className="flex flex-col gap-4 text-xs">
             <div>
                 <p><span className="font-bold">powermap</span> is an open source data visualization project that displays a <span className="text-cyan-300 font-bold">real-time heatmap </span> of <span className="text-cyan-300 font-bold"> power outage complaints</span> in Kenya.</p>
-                <p>The website uses the Twitter API to track public tweets directed at the official <a href='https://www.kplc.co.ke/'>Kenya Power</a> twitter handle. If a location is mentioned in a tweet, it matches the location to a geojson polygon, and generates a point within the polygon. </p>
+                <p>It uses the Twitter API to track public tweets directed at the official <a href='https://www.kplc.co.ke/'>Kenya Power</a> twitter handle. If a location is mentioned in a tweet, it matches the location to a geojson polygon, and generates a point within the polygon. </p>
             </div>
             <div>
                 <h1>How to contribute</h1>

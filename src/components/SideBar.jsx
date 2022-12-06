@@ -7,7 +7,7 @@ import Info from "./Info";
 
 function SideBar() {
     return (
-        <div className="flex flex-col justify-start gap-4 min-h-full bg-black text-white">
+        <div className="flex flex-col justify-start gap-4 bg-black text-white rounded-md w-96 p-5">
             <div> 
                 <div className="text-3xl font-bold font-serif">
                     powermap
@@ -15,9 +15,9 @@ function SideBar() {
             </div>
             <Info />
             <div className='flex justify-center gap-2'>
-            <FontAwesomeIcon icon={faGithub} size="lg"/>
-            <FontAwesomeIcon icon={faDiscord} size="lg"/>
-            <FontAwesomeIcon icon={faEnvelope} size="lg"/>
+                <FontAwesomeIcon icon={faGithub} size="lg"/>
+                <FontAwesomeIcon icon={faDiscord} size="lg"/>
+                <FontAwesomeIcon icon={faEnvelope} size="lg"/>
             </div>
         </div>
     )
