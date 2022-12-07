@@ -1,13 +1,22 @@
 import {useState, useEffect, useRef} from 'react';
 import mapboxgl from "mapbox-gl";
+import { response } from 'msw';
 
-function useMap(mapContainer, mapData) {
+function useMap(mapContainer) {
 
     const map = useRef(null);
     const [lng, setLng] = useState(36.817223);
     const [lat, setLat] = useState(-1.286389);
     const [zoom, setZoom] = useState(5);
 
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXJpY2dpdGhpbmppIiwiYSI6ImNrZmM4ODFtbzE1dzEyd281ajkydjViMHMifQ.T_3ACROnINNaOH3PBSXujA';
+
+    const emptyData = {
+            "type": "FeatureCollection",
+            "features": []
+        };
+
+    //initialize the map: 1)add style 2)add source with empty data 3) add layers 4) update source with initial data
     useEffect(() => {
         if (map.current) return; // initialize map only once
         map.current = new mapboxgl.Map({
@@ -17,14 +26,13 @@ function useMap(mapContainer, mapData) {
             zoom
         });
 
-        //after map is loaded...
         map.current.on('load', () => {
-            //add a source to the map (our geojson object)
+            
             map.current.addSource('tweets', {
-                'type': 'geojson',
-                'data': mapData
-            }); 
-           
+              'type': 'geojson',
+              'data': emptyData
+            });     
+             
             //add the heatmap layer
             map.current.addLayer({
                 id: 'tweet-heat',
@@ -68,7 +76,6 @@ function useMap(mapContainer, mapData) {
                   },
                 }
             });
-
             //add the tweet-point layer (when user zooms in, change to points)
             map.current.addLayer({
                 id: 'tweet-point',
@@ -90,13 +97,11 @@ function useMap(mapContainer, mapData) {
                     }
                 }
             }); 
-
             //Create a popup that will be added to the map when a user hovers over a point
             const popup = new mapboxgl.Popup({
                 closeButton: false,
                 closeOnClick: false
             });
-    
             map.current.on('mouseenter', 'tweet-point', (e) => {
                 //Change the cursor style as a UI indicator.
                 map.current.getCanvas().style.cursor = 'pointer';	
@@ -104,13 +109,31 @@ function useMap(mapContainer, mapData) {
                 popup.setLngLat(e.features[0].geometry.coordinates).setHTML(`<p align='left'><b>Tweeted at</b> ${e.features[0].properties.posted_on} </p> 
                 <p align='left'><b>Area: </b> ${e.features[0].properties.area} </p>`).addTo(map.current);
             });
-        
             map.current.on('mouseleave', 'tweet-point', () => {
               map.current.getCanvas().style.cursor = '';
                 popup.remove();
               });
             });
+            
+            map.current.on('idle',() => {
+              //fetch initial map data
+              fetch('/map')
+                .then((res) => res.json())
+                .then((data) => {
+                  map.current.getSource('tweets').setData(data);             
+                });
+           });
+            
     });
+
+    //function for updating the map's data. this will cause mapboxgl to re-rerender the map
+    //this function is passed to the Map component.
+    const updateMapData = (newData) => {
+        if (!map.current) return;
+        map.current.getSource('tweets').setData(newData);
+    }
+
+    return updateMapData;
 
 }
 
