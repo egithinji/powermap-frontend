@@ -19,7 +19,7 @@ function Info() {
                 </div>
                 <h2>Financial Support</h2>
                 <div>
-                    <p> The website incurs expenses mainly in terms of server costs and developer time. Your financial support goes towards defraying these costs and is
+                    <p> The website incurs expenses in terms of server costs and developer time. Your financial support goes towards defraying these costs and is
                     greatly appreciated.  Our primary channel for receiving donations is <a href='www.google.com'>github sponsors</a>.</p> 
                 </div> 
             </div>
