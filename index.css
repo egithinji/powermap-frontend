@@ -15,4 +15,12 @@
     a {
       @apply font-bold hover:text-cyan-200;
     }
+
+    .map-container {
+      @apply h-screen;
+    }
+
+    html {
+      @apply bg-neutral-800;
+    }  
   }

@@ -1,13 +1,13 @@
 /* eslint-disable react/react-in-jsx-scope */
 
-function StatsTrending() {
+function StatsTrending({ top3 }) {
     return (
         <div className="border-t border-white p-2">
-            Trending areas:
+            <span className="font-bold">Trending areas:</span>
             <ul>
-                <li>Ruaka (300)</li>
-                <li>Kasarani (150)</li>
-                <li>Umoja (50)</li>
+                <li>{top3[0].area} ({top3[0].count})</li>
+                <li>{top3[1].area} ({top3[1].count})</li>
+                <li>{top3[2].area} ({top3[2].count})</li>
             </ul>
             
         </div>

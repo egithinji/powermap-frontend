@@ -16,7 +16,7 @@ function useMap(mapContainer) {
             "features": []
         };
 
-    //initialize the map: 1)add style 2)add source with empty data 3) add layers 4) update source with initial data
+    //initialize the map: 1)add style 2)add source with empty data 3) add layers
     useEffect(() => {
         if (map.current) return; // initialize map only once
         map.current = new mapboxgl.Map({
@@ -114,16 +114,6 @@ function useMap(mapContainer) {
                 popup.remove();
               });
             });
-            
-            map.current.on('idle',() => {
-              //fetch initial map data
-              fetch('/map')
-                .then((res) => res.json())
-                .then((data) => {
-                  map.current.getSource('tweets').setData(data);             
-                });
-           });
-            
     });
 
     //function for updating the map's data. this will cause mapboxgl to re-rerender the map

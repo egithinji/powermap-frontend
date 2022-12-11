@@ -1,7 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import React, { useRef } from 'react';
-import SideBar from './SideBar';
-import Stats from "./Stats";
+import React, { useRef, useEffect } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import useMap from "../hooks/useMap";
 
@@ -11,15 +9,16 @@ function Map() {
 
     const setMapData = useMap(mapContainer);
 
+    useEffect(() => {
+        setInterval(() => {
+          fetch('/today_features')
+            .then((response) => response.json())
+            .then((data) => setMapData(data))
+        }, 5000);
+    }, []);
+
     return (
-        <div ref={mapContainer} className="map-container relative min-h-screen min-w-full">
-            <div className="absolute top-0 left-0 z-20 ml-4 mt-4">
-                <SideBar />
-            </div>
-            <div className="absolute top-0 right-0 z-20 mr-4 mt-4">
-                <Stats />
-            </div>
-        </div>
+        <div ref={mapContainer} className="map-container" />
     )
 }
 
