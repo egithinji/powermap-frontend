@@ -27,11 +27,11 @@ function useMap(mapContainer) {
         });
 
         map.current.on('load', () => {
-            
+
             map.current.addSource('tweets', {
-              'type': 'geojson',
-              'data': emptyData
-            });     
+                  'type': 'geojson',
+                  'data': emptyData
+            });
              
             //add the heatmap layer
             map.current.addLayer({
@@ -119,10 +119,10 @@ function useMap(mapContainer) {
     //function for updating the map's data. this will cause mapboxgl to re-rerender the map
     //this function is passed to the Map component.
     const updateMapData = (newData) => {
-        if (!map.current) return;
-        map.current.getSource('tweets').setData(newData);
+        map.current.on('load', () => {
+          map.current.getSource('tweets').setData(newData);
+        })
     }
-
     return updateMapData;
 
 }

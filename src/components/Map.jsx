@@ -9,13 +9,21 @@ function Map() {
 
     const setMapData = useMap(mapContainer);
 
-    useEffect(() => {
-        setInterval(() => {
-          fetch('/today_features')
+    const fetchFeatures = () => {
+        fetch('/today_features')
             .then((response) => response.json())
-            .then((data) => setMapData(data))
-        }, 5000);
-    }, []);
+            .then((data) => setMapData(data));
+    };
+
+    //retrieve initial features and display on map
+    useEffect(() => {
+        fetchFeatures();   
+    },[]);
+
+    //set up interval to periodically retrieve latest features
+    useEffect(() => {
+        setInterval(() => fetchFeatures(), 10000);
+    },[]);
 
     return (
         <div ref={mapContainer} className="map-container" />
