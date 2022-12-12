@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import Map from "./Map";
 import SideBar from "./SideBar";
-import Stats from './Stats';
+import Stats from './Stats/Stats';
 
 function App() {
 

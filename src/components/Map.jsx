@@ -15,12 +15,12 @@ function Map() {
             .then((data) => setMapData(data));
     };
 
-    //retrieve initial features and display on map
+    // retrieve initial features and display on map
     useEffect(() => {
         fetchFeatures();   
     },[]);
 
-    //set up interval to periodically retrieve latest features
+    // set up interval to periodically retrieve latest features
     useEffect(() => {
         setInterval(() => fetchFeatures(), 10000);
     },[]);

@@ -16,7 +16,7 @@ function useMap(mapContainer) {
             "features": []
         };
 
-    //initialize the map: 1)add style 2)add source with empty data 3) add layers
+    // initialize the map: 1)add style 2)add source with empty data 3) add layers
     useEffect(() => {
         if (map.current) return; // initialize map only once
         map.current = new mapboxgl.Map({
@@ -33,7 +33,7 @@ function useMap(mapContainer) {
                   'data': emptyData
             });
              
-            //add the heatmap layer
+            // add the heatmap layer
             map.current.addLayer({
                 id: 'tweet-heat',
                 type: 'heatmap',
@@ -76,7 +76,7 @@ function useMap(mapContainer) {
                   },
                 }
             });
-            //add the tweet-point layer (when user zooms in, change to points)
+            // add the tweet-point layer (when user zooms in, change to points)
             map.current.addLayer({
                 id: 'tweet-point',
                 type: 'circle',
@@ -97,7 +97,7 @@ function useMap(mapContainer) {
                     }
                 }
             }); 
-            //Create a popup that will be added to the map when a user hovers over a point
+            // Create a popup that will be added to the map when a user hovers over a point
             const popup = new mapboxgl.Popup({
                 closeButton: false,
                 closeOnClick: false
@@ -116,8 +116,8 @@ function useMap(mapContainer) {
             });
     });
 
-    //function for updating the map's data. this will cause mapboxgl to re-rerender the map
-    //this function is passed to the Map component.
+    // function for updating the map's data. this will cause mapboxgl to re-rerender the map
+    // this function is passed to the Map component.
     const updateMapData = (newData) => {
         map.current.on('load', () => {
           map.current.getSource('tweets').setData(newData);
