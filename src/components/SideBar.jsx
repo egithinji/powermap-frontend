@@ -7,7 +7,7 @@ import Info from "./Info";
 
 function SideBar() {
     return (
-        <div className="flex flex-col justify-start gap-4 bg-black text-white rounded-md w-96 p-5 h-full overflow-y-auto ml-4 mt-4 mb-4">
+        <div className="flex flex-col justify-start gap-2 bg-black/40 backdrop-blur-sm text-white rounded-md w-96 p-5 h-full overflow-y-auto ml-4 mt-4 mb-4">
             <div> 
                 <div className="text-3xl font-bold font-serif">
                     Power Map
