@@ -1,6 +1,5 @@
 import {useState, useEffect, useRef} from 'react';
 import mapboxgl from "mapbox-gl";
-import { response } from 'msw';
 
 function useMap(mapContainer) {
 
@@ -103,9 +102,9 @@ function useMap(mapContainer) {
                 closeOnClick: false
             });
             map.current.on('mouseenter', 'tweet-point', (e) => {
-                //Change the cursor style as a UI indicator.
+                // Change the cursor style as a UI indicator.
                 map.current.getCanvas().style.cursor = 'pointer';	
-                //Cause the popup to display here
+                // Cause the popup to display here
                 popup.setLngLat(e.features[0].geometry.coordinates).setHTML(`<p align='left'><b>Tweeted at</b> ${e.features[0].properties.posted_on} </p> 
                 <p align='left'><b>Area: </b> ${e.features[0].properties.area} </p>`).addTo(map.current);
             });
@@ -117,13 +116,14 @@ function useMap(mapContainer) {
     });
 
     // function for updating the map's data. this will cause mapboxgl to re-rerender the map
-    // this function is passed to the Map component.
-    const updateMapData = (newData) => {
-        map.current.on('load', () => {
-          map.current.getSource('tweets').setData(newData);
-        })
+    // this function is shared with the Map component.
+    const setMapData = (newData) => {
+        if (!map.current) return;
+        console.log(`updating map with data:`);
+        console.table(newData);
+        map.current.getSource('tweets').setData(newData);
     }
-    return updateMapData;
+    return setMapData;
 
 }
 
