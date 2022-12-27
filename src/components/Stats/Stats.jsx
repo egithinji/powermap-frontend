@@ -16,18 +16,28 @@ function Stats() {
         setStatsVisible(!statsVisible);
     }
 
-    useEffect(() => {
-        fetch('/today_stats')
+    const fetchStats = () => {
+        fetch('http://localhost:4000/api/v1/features/today_stats')
             .then((response) => response.json())
             .then((data) => {
                 setTop3(data.top3);
                 setTodayTotal(data.todayTotal);
-            });
+        });
+    }
+
+    useEffect(() => {
+        console.log('fetching initial stats');
+        fetchStats();
+    }, []);
+
+    useEffect(() => {
+        console.log('updating stats');
+        setInterval(() => fetchStats(), 20000);
     }, []);
 
     return (
         <div className=" bg-black/40 backdrop-blur-sm text-white flex-col p-2 rounded-md">
-            <div className=" w-40 text-lg flex justify-between font-bold font-serif">Today's stats<FontAwesomeIcon className="cursor-pointer" icon={statsVisible ? faCaretRight : faCaretRight} size="lg" onClick={handleClick} /></div>
+            <div className=" w-40 text-lg flex justify-between font-bold font-serif">Today's stats<FontAwesomeIcon className="cursor-pointer" icon={statsVisible ? faCaretDown : faCaretRight} size="lg" onClick={handleClick} /></div>
             <div className={statsVisible ? `transition-all duration-1000 ease-in flex flex-col w-40 max-h-96 text-xs` : `transition-all duration-1000 ease-out w-40 max-h-0 overflow-hidden text-xs`}>
                 <div>
                     <StatsTrending top3={top3}/>
