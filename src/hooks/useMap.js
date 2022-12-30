@@ -117,13 +117,17 @@ function useMap(mapContainer) {
 
     // function for updating the map's data. this will cause mapboxgl to re-rerender the map
     // this function is shared with the Map component.
+    const setInitialMapData = (newData) => {
+      map.current.on('load', () => {
+        console.log(`setting initial map data`);
+        map.current.getSource('tweets').setData(newData);
+      })
+    }
     const setMapData = (newData) => {
-        if (!map.current) return;
-        console.log(`updating map with data:`);
-        console.table(newData);
+        console.log(`updating map with data`);
         map.current.getSource('tweets').setData(newData);
     }
-    return setMapData;
+    return [setInitialMapData, setMapData];
 
 }
 
