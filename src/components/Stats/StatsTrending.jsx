@@ -1,13 +1,16 @@
 /* eslint-disable react/react-in-jsx-scope */
+import { nanoid } from 'nanoid';
 
 function StatsTrending({ top3 }) {
+    const list = [];
+    top3.forEach(element => {
+        list.push(<li key={nanoid()}>{element.area} ({element.count})</li>)
+    });
     return (
         <div className="border-t border-white p-2">
             <span className="font-bold">Trending areas:</span>
             <ul>
-                <li>{top3[0].area} ({top3[0].count})</li>
-                <li>{top3[1].area} ({top3[1].count})</li>
-                <li>{top3[2].area} ({top3[2].count})</li>
+               {list} 
             </ul>
             
         </div>
