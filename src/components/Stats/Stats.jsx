@@ -26,13 +26,18 @@ function Stats() {
     }
 
     useEffect(() => {
+        // retrieve initial features and display on map
         console.log('fetching initial stats');
         fetchStats();
-    }, []);
-
-    useEffect(() => {
-        console.log('updating stats');
-        setInterval(() => fetchStats(), 20000);
+         // set up sse to be notified of new data and fetch stats
+         const sse = new EventSource('http://localhost:4000/stream');
+         sse.onmessage = (e) => {
+             console.log('event received: ', e.data);
+             fetchStats();
+             return () => {
+                 sse.close();
+             }
+         }
     }, []);
 
     return (

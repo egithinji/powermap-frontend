@@ -7,24 +7,31 @@ function Map() {
 
     const mapContainer = useRef(null);
 
-    const setMapData = useMap(mapContainer);
+    const [setInitialMapData,setMapData] = useMap(mapContainer);
 
-    const fetchFeatures = () => {
+    const fetchFeatures = (updater) => {
         fetch('http://localhost:4000/api/v1/features/today_features')
             .then((response) => response.json())
-            .then((data) => setMapData(data));
+            .then((data) => updater(data));
     };
 
-    // retrieve initial features and display on map
+
     useEffect(() => {
+        // retrieve initial features and display on map
         console.log('fetching initial features');
-        fetchFeatures();   
+        fetchFeatures(setInitialMapData);   
+        // set up sse to be notified of new features to the map
+        const sse = new EventSource('http://localhost:4000/stream');
+        sse.onmessage = (e) => {
+            console.log('event received: ', e.data);
+            fetchFeatures(setMapData);
+            return () => {
+                sse.close();
+            }
+        }
     },[]);
 
-    // set up interval to periodically retrieve latest features
-    useEffect(() => {
-        setInterval(() => fetchFeatures(), 20000);
-    },[]);
+    
 
     return (
         <div ref={mapContainer} className="map-container" />
