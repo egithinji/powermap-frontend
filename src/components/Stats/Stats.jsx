@@ -34,9 +34,9 @@ function Stats() {
          sse.onmessage = (e) => {
              console.log('event received: ', e.data);
              fetchStats();
-             /*return () => {
+             return () => {
                  sse.close();
-             }*/
+             }
          }
     }, []);
 

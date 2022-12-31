@@ -25,9 +25,9 @@ function Map() {
         sse.onmessage = (e) => {
             console.log('event received: ', e.data);
             fetchFeatures(setMapData);
-            /*return () => {
+            return () => {
                 sse.close();
-            }*/
+            }
         }
     },[]);
 
