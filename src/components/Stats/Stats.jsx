@@ -30,7 +30,7 @@ function Stats() {
         console.log('fetching initial stats');
         fetchStats();
          // set up sse to be notified of new data and fetch stats
-         const sse = new EventSource('https://powermap-backend-production.up.railway.app/stream');
+         const sse = new EventSource('https://powermap-backend-production.up.railway.app/stream', { withCredentials: false });
          sse.onmessage = (e) => {
              console.log('event received: ', e.data);
              fetchStats();

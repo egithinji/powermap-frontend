@@ -21,7 +21,7 @@ function Map() {
         console.log('fetching initial features');
         fetchFeatures(setInitialMapData);   
         // set up sse to be notified of new features to the map
-        const sse = new EventSource('https://powermap-backend-production.up.railway.app/stream');
+        const sse = new EventSource('https://powermap-backend-production.up.railway.app/stream', { withCredentials: false });
         sse.onmessage = (e) => {
             console.log('event received: ', e.data);
             fetchFeatures(setMapData);
