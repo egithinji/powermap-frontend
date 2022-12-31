@@ -10,7 +10,7 @@ function Map() {
     const [setInitialMapData,setMapData] = useMap(mapContainer);
 
     const fetchFeatures = (updater) => {
-        fetch('http://localhost:4000/api/v1/features/today_features')
+        fetch('https://powermap-backend-production.up.railway.app/api/v1/features/today_features')
             .then((response) => response.json())
             .then((data) => updater(data));
     };
@@ -21,7 +21,7 @@ function Map() {
         console.log('fetching initial features');
         fetchFeatures(setInitialMapData);   
         // set up sse to be notified of new features to the map
-        const sse = new EventSource('http://localhost:4000/stream');
+        const sse = new EventSource('https://powermap-backend-production.up.railway.app/stream');
         sse.onmessage = (e) => {
             console.log('event received: ', e.data);
             fetchFeatures(setMapData);

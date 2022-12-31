@@ -17,7 +17,7 @@ function Stats() {
     }
 
     const fetchStats = () => {
-        fetch('http://localhost:4000/api/v1/features/today_stats')
+        fetch('https://powermap-backend-production.up.railway.app/api/v1/features/today_stats')
             .then((response) => response.json())
             .then((data) => {
                 setTop3(data.top3);
@@ -30,7 +30,7 @@ function Stats() {
         console.log('fetching initial stats');
         fetchStats();
          // set up sse to be notified of new data and fetch stats
-         const sse = new EventSource('http://localhost:4000/stream');
+         const sse = new EventSource('https://powermap-backend-production.up.railway.app/stream');
          sse.onmessage = (e) => {
              console.log('event received: ', e.data);
              fetchStats();
