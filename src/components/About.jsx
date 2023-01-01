@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import {useState} from 'react';
+import { useState } from 'react';
 
 function About() {
     const [aboutVisible, setAboutVisible] = useState(false);
