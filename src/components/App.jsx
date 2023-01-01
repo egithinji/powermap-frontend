@@ -14,7 +14,7 @@ function App() {
         <div className="absolute top-0 right-0 z-20 mr-4 mt-4">
             <SideBar />
         </div>
-        <div className="absolute bottom-10 md:bottom-0 left-10 md:left-0 z-20 mr-4 mt-4">
+        <div className="absolute bottom-20 md:bottom-0 left-5 md:left-0 z-20 mr-4 mt-4">
             <Stats />
         </div>
     </div>
