@@ -11,7 +11,7 @@ function App() {
             <Map />
         </div>
         {/* <div className="sm:absolute sm:top-0 sm:left-0 z-20"> */}
-        <div className="absolute bottom-0 left-0 z-20">
+        <div className="absolute bottom-0 left-0 z-20 mb-8">
             <SideBar />
         </div>
         <div className="absolute top-0 right-0 z-20 mr-4 mt-4">
