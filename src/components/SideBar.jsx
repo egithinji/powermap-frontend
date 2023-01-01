@@ -20,7 +20,7 @@ function SideBar() {
     }, []);
 
     return (
-        <div className="flex flex-col justify-start gap-2 bg-black/40 backdrop-blur-sm text-white rounded-md w-96 pl-5 pr-5 pt-2 pb-1 h-full overflow-y-auto ">
+        <div className="flex flex-col justify-start gap-2 bg-black/40 backdrop-blur-sm text-white rounded-md w-9/12 md:w-96 pl-5 pr-5 pt-2 pb-1 h-full overflow-y-auto ">
             <div className="text-lg font-bold font-serif flex justify-between items-center">
                 Power Map <FontAwesomeIcon className={`cursor-pointer md:hidden`} icon={sideBarExpanded ? faCaretDown : faCaretRight} size="lg" onClick={handleClick} />
             </div>
