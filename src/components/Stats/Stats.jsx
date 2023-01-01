@@ -42,7 +42,7 @@ function Stats() {
 
     return (
         <div className=" bg-black/40 backdrop-blur-sm text-white flex-col p-2 rounded-md">
-            <div className=" w-40 text-lg flex justify-between font-bold font-serif">Today's stats<FontAwesomeIcon className="cursor-pointer" icon={statsVisible ? faCaretDown : faCaretRight} size="lg" onClick={handleClick} /></div>
+            <div className=" w-40 text-lg flex justify-between font-bold font-serif items-center">Today's stats<FontAwesomeIcon className="cursor-pointer" icon={statsVisible ? faCaretDown : faCaretRight} size="lg" onClick={handleClick} /></div>
             <div className={statsVisible ? `transition-all duration-1000 ease-in flex flex-col w-40 max-h-96 text-xs` : `transition-all duration-1000 ease-out w-40 max-h-0 overflow-hidden text-xs`}>
                 <div>
                     <StatsTrending top3={top3}/>
