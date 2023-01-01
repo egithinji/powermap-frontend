@@ -11,10 +11,10 @@ function App() {
             <Map />
         </div>
         {/* <div className="sm:absolute sm:top-0 sm:left-0 z-20"> */}
-        <div className="absolute top-0 right-0 z-20 mr-4 mt-4">
+        <div className="absolute top-0 md:right-0 z-20 mr-4 mt-4">
             <SideBar />
         </div>
-        <div className="absolute bottom-20 md:bottom-0 left-5 md:left-0 z-20 mr-4 mt-4">
+        <div className="absolute bottom-20 md:bottom-0 left-3 md:left-0 z-20 mr-4 mt-4">
             <Stats />
         </div>
     </div>
