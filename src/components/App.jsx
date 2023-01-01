@@ -10,7 +10,7 @@ function App() {
         <div className='h-auto w-full sm:min-h-screen sm:min-w-full'>
             <Map />
         </div>
-        <div className="absolute top-0 right-3 md:right-0 z-20 mr-4 mt-4">
+        <div className="absolute top-0 right-0 md:right-0 z-20 mr-4 mt-4">
             <SideBar />
         </div>
         <div className="absolute bottom-20 md:bottom-0 left-3 md:left-0 z-20 mr-4 mt-4">
