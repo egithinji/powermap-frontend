@@ -20,11 +20,11 @@ function SideBar() {
     }, []);
 
     return (
-        <div className="flex flex-col justify-start gap-2 bg-black/40 backdrop-blur-sm text-white rounded-md  pl-5 pr-5 pt-2 pb-1 h-full overflow-y-auto ">
+        <div className="flex flex-col justify-start gap-2 bg-black/40 backdrop-blur-sm text-white rounded-md  pl-5 pr-5 pt-2 pb-1 h-full overflow-y-hidden ">
             <div className="text-lg font-bold font-serif flex justify-between items-center">
                 Power Map <FontAwesomeIcon className={`cursor-pointer`} icon={sideBarExpanded ? faCaretDown : faCaretRight} size="lg" onClick={handleClick} />
             </div>
-            <div className={sideBarExpanded ? `transition-all duration-1000 ease-linear flex flex-col max-h-[32rem] text-xs` : `transition-all duration-500 ease-linear max-h-0 overflow-hidden`}>
+            <div className={sideBarExpanded ? `transition-all duration-1000 ease-in flex flex-col max-h-[32rem] text-xs` : `transition-all duration-500 ease-out max-h-0 overflow-hidden`}>
                 <Info />
                 <div className='flex justify-center gap-2'>
                     <a href='https://github.com/egithinji/powermap-frontend' target='_blank'><FontAwesomeIcon icon={faGithub} size="lg"/></a>
