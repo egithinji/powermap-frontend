@@ -27,17 +27,21 @@ function Stats() {
 
     useEffect(() => {
         // retrieve initial features and display on map
-        console.log('fetching initial stats');
         fetchStats();
          // set up sse to be notified of new data and fetch stats
          const sse = new EventSource('https://powermap-backend-production.up.railway.app/stream', { withCredentials: false });
          sse.onmessage = (e) => {
-             console.log('event received: ', e.data);
              fetchStats();
              return () => {
                  sse.close();
              }
          }
+    }, []);
+
+    useEffect(() => {
+        setTimeout(() => {
+           setStatsVisible(true); 
+        }, 10000);
     }, []);
 
     return (
