@@ -17,6 +17,8 @@ function About() {
                 <div>
                     <p>Power Map uses the Twitter API to track public tweets directed at the official <a href='https://www.kplc.co.ke/'>Kenya Power</a> twitter handle.</p>
                     <p>When a tweet contains a complaint about an area, a random point is generated on the map within that area.</p>
+                    <p>We're currently covering 220 areas (neighborhoods, towns, etc) in Kenya and are progressively increasing coverage.</p>
+                    <p>If you're interested in contributing or just want to say hi, <a href='mailto:ericgithinji@gmail.com'>send me an email</a>.</p>
                 </div>
             </div>
         </div>

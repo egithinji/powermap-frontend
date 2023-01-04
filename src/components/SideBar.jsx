@@ -27,8 +27,7 @@ function SideBar() {
             <div className={sideBarExpanded ? `transition-all duration-1000 ease-in flex flex-col max-h-[32rem] text-xs` : `transition-all duration-500 ease-out max-h-0 overflow-hidden`}>
                 <Info />
                 <div className='flex justify-center gap-2'>
-                    <a href='https://github.com/egithinji/powermap-frontend' target='_blank'><FontAwesomeIcon icon={faGithub} size="lg"/></a>
-                    <FontAwesomeIcon icon={faDiscord} size="lg"/>
+                    <a href='https://github.com/egithinji' target='_blank'><FontAwesomeIcon icon={faGithub} size="lg"/></a>
                     <a href='mailto:ericgithinji@gmail.com'><FontAwesomeIcon icon={faEnvelope} size="lg"/></a>
                 </div>
             </div>
