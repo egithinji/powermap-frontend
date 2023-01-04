@@ -8,7 +8,7 @@ function useMap(mapContainer) {
     const [lat, setLat] = useState(-1.286389);
     const [zoom, setZoom] = useState(5);
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZXJpY2dpdGhpbmppIiwiYSI6ImNrZmM4ODFtbzE1dzEyd281ajkydjViMHMifQ.T_3ACROnINNaOH3PBSXujA';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXJpY2dpdGhpbmppIiwiYSI6ImNsY2hleWxjaDBkN2gzcHBjNmYyeHVrZGgifQ.j89MRE2w5RRrgoae0_jHXg';
 
     const emptyData = {
             "type": "FeatureCollection",
@@ -119,12 +119,10 @@ function useMap(mapContainer) {
     // this function is shared with the Map component.
     const setInitialMapData = (newData) => {
       map.current.on('load', () => {
-        console.log(`setting initial map data`);
         map.current.getSource('tweets').setData(newData);
       })
     }
     const setMapData = (newData) => {
-        console.log(`updating map with data`);
         map.current.getSource('tweets').setData(newData);
     }
     return [setInitialMapData, setMapData];
