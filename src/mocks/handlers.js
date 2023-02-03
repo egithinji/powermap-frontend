@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer';
 import { rest } from 'msw';
 
 
@@ -14,6 +15,14 @@ export const handlers = [
             ctx.json(stats),
         )
     }),
+    rest.post('/add_polygon', (req, res, ctx) => {
+        req.json().then((data) => {
+          console.log(`data received: ${JSON.stringify(data)}`);
+        });
+        return res(
+          ctx.status(200)
+        )
+    })
   ]
 
 const initialData = 
