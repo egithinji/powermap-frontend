@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import About  from "./About";
 import Contributing  from "./Contributing";
 

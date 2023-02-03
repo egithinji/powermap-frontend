@@ -1,5 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
-
 function CurrentlyViewing() {
     return (
         <div className="border-t border-white p-2">
