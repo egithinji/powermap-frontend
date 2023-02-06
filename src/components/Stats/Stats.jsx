@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight , faCaretDown } from "@fortawesome/free-solid-svg-icons";

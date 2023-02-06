@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { nanoid } from 'nanoid';
 
 function StatsTrending({ top3 }) {

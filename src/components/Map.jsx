@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import React, { useRef, useEffect } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import useMap from "../hooks/useMap";
