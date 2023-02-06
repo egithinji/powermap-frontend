@@ -36,7 +36,7 @@ function AddPolygon() {
             setErrors([...errors, 'Please copy-paste a valid Geojson object from geojson.io']);
             return;
         }
-        const response = await fetch('/add_polygon', {
+        const response = await fetch('https://powermap-backend-production.up.railway.app/api/v1/features/add_polygon', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -44,9 +44,10 @@ function AddPolygon() {
             body: JSON.stringify({
                 areaName,
                 aliases,
-                geojson 
+                geojson: JSON.parse(geojson) 
             }) 
         });
+        console.log(response);
         setErrors([]);
     }
 
