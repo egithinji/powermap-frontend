@@ -1,24 +1,24 @@
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from "react-router-dom";
 import Home from "./components/Home";
 import AddPolygon from "./components/AddPolygon";
+import About from "./components/About";
+import NavBar from "./components/NavBar";
 
 function App() {
 
   return (
-    <Router>
-      <Switch>
-        <Route path="/AddPolygon">
-          <AddPolygon />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch> 
-    </Router>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/AddPolygon" element={<AddPolygon />} />
+        </Routes> 
+      </Router>
   )
 }
 
