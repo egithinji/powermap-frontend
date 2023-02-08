@@ -12,7 +12,7 @@ function Home() {
             <div className="absolute top-2 left-2 w-8/12 md:w-96 z-20">
                 <SideBar />
             </div>
-            <div className="absolute bottom-20 right-2 md:bottom-2 z-20">
+            <div className="absolute bottom-20 right-2 md:bottom-12 z-20">
                 <Stats />
             </div>
         </div>
