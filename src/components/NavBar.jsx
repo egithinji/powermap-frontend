@@ -7,7 +7,7 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 function NavBar() {
 
     return (
-    <nav className="flex justify-between items-center bg-black text-white text-sm font-bold h-10 font-sans">
+    <nav className="flex justify-between items-center bg-black text-white text-xs md:text-sm font-bold h-10 font-sans">
         <ul className="flex">
             <li className="ml-6">
                 <NavLink
