@@ -23,11 +23,11 @@ function TagInput({ addAlias }) {
     }
 
     return (
-        <div className="flex flex-wrap text-white border-white bg-transparent w-56">
+        <div className="flex flex-wrap">
             {
                 tags.map((tag) => <Tag key={tag} text={tag} onCloseTagHandler={onCloseTagHandler} />)
             } 
-            <input value={inputValue} placeholder="e.g. 'ronga' + press Enter" type="text" onChange={onChangeHandler} onKeyDown={onEnterPressed} className="text-white bg-transparent border border-white w-full" />
+            <input value={inputValue} placeholder="e.g. 'ronga' + press Enter" type="text" onChange={onChangeHandler} onKeyDown={onEnterPressed} className="pl-2 pr-2 border w-full rounded shadow" />
 
         </div>
         
