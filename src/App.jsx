@@ -16,8 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
-          <Route path="/AddPolygon" element={<AddPolygon />} />
-        </Routes> 
+          {/* <Route path="/AddPolygon" element={<AddPolygon />} />
+ */}        </Routes> 
       </Router>
   )
 }
