@@ -54,7 +54,7 @@ function NavBar() {
 
     return (
         <>
-            <svg onClick={toggleHamburger} className="md:hidden z-50 fixed top-1 left-1" viewBox="0 0 100 100" width="25">
+            <svg onClick={toggleHamburger} className="md:hidden z-50 fixed top-1 left-1" viewBox="0 0 100 100" width="35">
                     <rect 
                         fill={(location.pathname === '/' || mobNavExpanded) ? "white" : "black"}
                         stroke={location.pathname === '/' ? "white" : "black"}
