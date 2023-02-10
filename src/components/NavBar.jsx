@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 function NavBar() {
 
-    const [mobNavExpanded, setMobNavExpanded] = useState(true);
+    const [mobNavExpanded, setMobNavExpanded] = useState(false);
 
     const toggleHamburger = () => {
         setMobNavExpanded(!mobNavExpanded);
