@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
@@ -8,6 +8,7 @@ import { useState } from 'react';
 function NavBar() {
 
     const [mobNavExpanded, setMobNavExpanded] = useState(false);
+    const location = useLocation();
 
     const toggleHamburger = () => {
         setMobNavExpanded(!mobNavExpanded);
@@ -55,8 +56,8 @@ function NavBar() {
         <>
             <svg onClick={toggleHamburger} className="md:hidden z-50 fixed top-1 left-1" viewBox="0 0 100 100" width="25">
                     <rect 
-                        fill="white" 
-                        stroke="white" 
+                        fill={(location.pathname === '/' || mobNavExpanded) ? "white" : "black"}
+                        stroke={location.pathname === '/' ? "white" : "black"}
                         width="80" height="8" 
                         x="10" 
                         rx="2" 
@@ -65,8 +66,8 @@ function NavBar() {
 
 
                     <rect 
-                        fill="white" 
-                        stroke="white" 
+                        fill={(location.pathname === '/' || mobNavExpanded) ? 'white' : 'black'}
+                        stroke={location.pathname === '/' ? 'white' : 'black'}
                         width="80" height="8" 
                         x="10" y="45"
                         rx="2" 
@@ -74,8 +75,8 @@ function NavBar() {
                         />
 
                     <rect 
-                        fill="white" 
-                        stroke="white" 
+                        fill={(location.pathname === '/' || mobNavExpanded) ? 'white' : 'black'}
+                        stroke={location.pathname === '/' ? 'white' : 'black'}
                         width="80" height="8" 
                         x="10" y="65"
                         rx="2"
