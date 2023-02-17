@@ -93,14 +93,14 @@ function NavBar() {
                             }
                         >Power Map</NavLink>
                     </li>
-                    {/* <li className="ml-6">
+                    <li className="ml-6">
                         <NavLink
                             to="/AddPolygon"
                             className={({ isActive }) =>
                                 isActive ? "font-bold text-cyan-200" : undefined
                             }
-                        >Add a Polygon</NavLink>
-                    </li> */}
+                        >Add Area</NavLink>
+                    </li>
                     <li className="md:ml-6">
                         <NavLink
                             to="/About"
