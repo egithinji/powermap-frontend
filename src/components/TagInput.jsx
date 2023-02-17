@@ -27,7 +27,7 @@ function TagInput({ addAlias }) {
             {
                 tags.map((tag) => <Tag key={tag} text={tag} onCloseTagHandler={onCloseTagHandler} />)
             } 
-            <input value={inputValue} placeholder="e.g. 'ronga' + press Enter" type="text" onChange={onChangeHandler} onKeyDown={onEnterPressed} className="pl-2 pr-2 border w-full rounded shadow" />
+            <input value={inputValue} placeholder="e.g. 'ronga' + press Enter" type="text" onChange={onChangeHandler} onKeyDown={onEnterPressed} className="p-2 border w-full rounded shadow bg-gray-100" />
 
         </div>
         
