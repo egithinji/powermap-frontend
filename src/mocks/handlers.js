@@ -1,20 +1,19 @@
-import { data } from 'autoprefixer';
+/* eslint-disable no-loss-of-precision */
+/* eslint-disable no-use-before-define */
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
+import { format } from 'date-fns';
 
-
+// eslint-disable-next-line import/prefer-default-export
 export const handlers = [
-    rest.get('/today_features', (req, res, ctx) => {
-        return res(
+    rest.get('/today_features', (req, res, ctx) => res(
             ctx.status(200),
             ctx.json(updatedData),
-        )
-    }),
-    rest.get('/today_stats', (req, res, ctx) => {
-        return res(
+        )),
+    rest.get('/today_stats', (req, res, ctx) => res(
             ctx.status(200),
             ctx.json(stats),
-        )
-    }),
+        )),
     rest.post('/add_polygon', (req, res, ctx) => {
         req.json().then((data) => {
           console.log(`data received: ${JSON.stringify(data)}`);
@@ -22,49 +21,41 @@ export const handlers = [
         return res(
           ctx.status(200)
         )
-    })
-  ]
+    }),
+    rest.get('/total_complaints_day', (req, res, ctx) => res(
+        ctx.status(200),
+        ctx.json(totalComplaintsPerDay),
+      )),
+    rest.get('/total_complaints_area', (req, res, ctx) => res(
+      ctx.status(200),
+      ctx.json(totalComplaintsPerArea),
+    ))
+]
 
-const initialData = 
-{
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-            "type": "Point",
-            "coordinates": [
-                37.10396554136118,
-                -0.9381197381062314
-            ]
-            },
-            "properties": {
-            "text": "@KenyaPower_Care Acc. 14272675068. Kabati zabka lost power at night Please assist Working from home",
-            "posted_on": "05:37am on Fri Jan 01 2021",
-            "area": "kabati",
-            "user_id": 917617854018674694
-            },
-            "id": 7524
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-            "type": "Point",
-            "coordinates": [
-                36.83411727374143,
-                -1.3106580411645044
-            ]
-            },
-            "properties": {
-            "text": "@KenyaPower_Care hi no power in south b balozi area since early morning please advice.",
-            "posted_on": "05:42am on Fri Jan 01 2021",
-            "area": "south b",
-            "user_id": 494850245
-            },
-            "id": 7525
-        }
-    ]
-};
+const totalComplaintsPerDay = [
+  { date: format(new Date(2023, 0, 1), 'dd/MM/yy'), complaints: 20 },
+  { date: format(new Date(2023, 0, 2), 'dd/MM/yy'), complaints: 30 },
+  { date: format(new Date(2023, 0, 3), 'dd/MM/yy'), complaints: 40 },
+  { date: format(new Date(2023, 0, 4), 'dd/MM/yy'), complaints: 50 },
+  { date: format(new Date(2023, 0, 5), 'dd/MM/yy'), complaints: 35 },
+  { date: format(new Date(2023, 0, 6), 'dd/MM/yy'), complaints: 100 },
+  { date: format(new Date(2023, 0, 7), 'dd/MM/yy'), complaints: 90 },
+  { date: format(new Date(2023, 0, 8), 'dd/MM/yy'), complaints: 70 },
+  { date: format(new Date(2023, 0, 9), 'dd/MM/yy'), complaints: 70 },
+  { date: format(new Date(2023, 0, 10), 'dd/MM/yy'), complaints: 70 },
+  { date: format(new Date(2023, 0, 11), 'dd/MM/yy'), complaints: 10 },
+];
+
+const totalComplaintsPerArea = [
+  {area: 'kinoo', complaints: 20},
+  {area: 'ruaka', complaints: 30},
+  {area: 'buru buru', complaints: 50},
+  {area: 'kasarani', complaints: 15},
+  {area: 'westlands', complaints: 10},
+  {area: 'kilimani', complaints: 23},
+  {area: 'ongata rongai', complaints: 14},
+  {area: 'kitengela', complaints: 12}
+]
 
 const updatedData = 
 {
@@ -83,6 +74,7 @@ const updatedData =
             "text": "@KenyaPower_Care Acc. 14272675068. Kabati zabka lost power at night Please assist Working from home",
             "posted_on": "05:37am on Fri Jan 01 2021",
             "area": "kabati",
+            // eslint-disable-next-line no-loss-of-precision
             "user_id": 917617854018674694
             },
             "id": 7524
