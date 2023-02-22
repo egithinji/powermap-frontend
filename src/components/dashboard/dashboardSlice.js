@@ -18,6 +18,8 @@ export const fetchTotalComplaintsPerArea = createAsyncThunk('dashboard/fetchTota
         throw new Error('Failed to fetch total complaints per area')
     }
     const data = await response.json();
+    console.log('received:');
+    console.table(data);
     return data;
 });
 
