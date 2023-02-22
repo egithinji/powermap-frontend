@@ -1,6 +1,6 @@
 import Map from "./Map";
 import SideBar from "./SideBar";
-import Stats from './Stats/Stats';
+import Stats from './stats/Stats';
 
 
 function Home() {
