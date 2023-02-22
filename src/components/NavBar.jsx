@@ -95,6 +95,14 @@ function NavBar() {
                     </li>
                     <li className="ml-6">
                         <NavLink
+                            to="/Dashboard"
+                            className={({ isActive }) =>
+                                isActive ? "font-bold text-cyan-200" : undefined
+                            }
+                        >Dashboard</NavLink>
+                    </li>
+                    <li className="ml-6">
+                        <NavLink
                             to="/AddPolygon"
                             className={({ isActive }) =>
                                 isActive ? "font-bold text-cyan-200" : undefined
