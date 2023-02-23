@@ -1,8 +1,9 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+const url = process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'https://powermap-backend-production.up.railway.app';
 export const fetchTotalComplaintsPerDay = createAsyncThunk('dashboard/fetchTotalComplaintsPerDay', async () => {
-    const response = await fetch('https://powermap-backend-production.up.railway.app/api/v1/dashboard/total_complaints_day');
+    const response = await fetch(`${url}/api/v1/dashboard/total_complaints_day`);
     if (!response.ok) {
         throw new Error('Failed to fetch total complaints per day');
     }
@@ -13,7 +14,7 @@ export const fetchTotalComplaintsPerDay = createAsyncThunk('dashboard/fetchTotal
 });
 
 export const fetchTotalComplaintsPerArea = createAsyncThunk('dashboard/fetchTotalComplaintsPerArea', async () => {
-    const response = await fetch('https://powermap-backend-production.up.railway.app/api/v1/dashboard/total_complaints_area');
+    const response = await fetch(`${url}/api/v1/dashboard/total_complaints_area`);
     if (!response.ok) {
         throw new Error('Failed to fetch total complaints per area')
     }

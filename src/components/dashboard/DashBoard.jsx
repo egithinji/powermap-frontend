@@ -40,7 +40,7 @@ function DashBoard() {
                 <LineGraph data={lineGraphData}/>
             </div>
             <div className='w-full h-full md:w-1/2 md:h-1/2 flex justify-center'>
-                {/* <PieChart data={pieChartData} /> */}
+                <PieChart data={pieChartData} />
             </div>
         </div>
     )
