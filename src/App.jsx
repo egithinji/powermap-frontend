@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
-          <Route path="/DashBoard" element={<DashBoard />} />
+          <Route path="/Dashboard" element={<DashBoard />} />
           <Route path="/AddPolygon" element={<AddPolygon />} />
         </Routes> 
       </Router>
